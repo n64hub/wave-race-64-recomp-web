@@ -4,11 +4,12 @@
     "launcher, Load ROM once the page has its shader list (Chrome builds the whole list behind the launcher and says when",
     "it is done: a laptop's GPU busy with it took no click until it was done; Firefox builds none there, and its line",
     "saying so is the one waited for), Start Game, then the title (the game's state 2, read in RDRAM: in Firefox the",
-    "console line saying so comes before the plan plays) and a Normal Championship's first race, Sunny Beach, as",
-    "tools/shader_plan.json's second championship section plays it: the menus passed by pressing until the game's state",
-    "(gGameState, 0x800DAB24) says the next screen is up, a need that the race is on, and the race raced 60 s of the",
-    "game's own time (the frame counter at 0x80151960, 20 a second) with the gas held and tools/autopilot.js steering.",
-    "tools/play_plan_extended.json goes on through the race's finish to two more races, for when a longer play is needed."
+    "console line saying so comes before the plan plays, and the shot is taken 1.5 s on, past its fade-in from black) and",
+    "a Normal Championship's first race, Sunny Beach, as tools/shader_plan.json's second championship section plays it:",
+    "the menus passed by pressing until the game's state (gGameState, 0x800DAB24) says the next screen is up, a need that",
+    "the race is on, and the race raced 60 s of the game's own time (the frame counter at 0x80151960, 20 a second) with",
+    "the gas held and tools/autopilot.js steering. tools/play_plan_extended.json goes on through the race's finish to two",
+    "more races, for when a longer play is needed."
   ],
   "page": "WaveRace64Recomp.html",
   "load": [
@@ -24,6 +25,7 @@
   ],
   "play": [
     ["eval", "new Promise((r) => { const t0 = Date.now(), i = setInterval(() => { const s = n64r(0x800DAB24); if (s >= 2 || Date.now() - t0 > 15000) { clearInterval(i); r(\"state 0x\" + s.toString(16)); } }, 100); })"],
+    ["wait", 1500],
     ["shot", "title.png"],
     ["pressUntil", "Enter", "Enter", 13, 150, 1000, "n64r(0x800DAB24)==3", 8000],
     ["wait", 3000],
