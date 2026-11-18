@@ -12,8 +12,8 @@
 
 **Play it in the browser: https://n64hub.com/wave-race-64/**, with your own dump of Wave Race 64
 (USA) (Rev A), picked in the launcher and kept in the browser. It needs WebGPU (Chrome or Edge 113 and up, or a
-recent Firefox on Windows). The page is the PC port without its Mods tab or Quit, built from this branch and published
-with N64Recomp-browser's `tools/publish_page.sh`, so it can be a commit or two behind.
+recent Firefox on Windows). The page is the PC port without its Mods tab or Quit, built from this branch, so it can be a
+commit or two behind.
 
 A native PC port of Wave Race 64 for Windows, Linux and macOS, made by statically
 recompiling the game with [N64Recomp](https://github.com/N64Recomp/N64Recomp).
